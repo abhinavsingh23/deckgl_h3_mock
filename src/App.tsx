@@ -28,7 +28,7 @@ const INITIAL_VIEW_STATE = {
 
 
 function App() {
-  const [viewState, setViewState] = React.useState(INITIAL_VIEW_STATE);
+  const [, setViewState] = React.useState(INITIAL_VIEW_STATE);
 
   const layer = new H3HexagonLayer<DataType>({
     id: 'H3HexagonLayer',
@@ -64,7 +64,9 @@ function App() {
       zoom: 11
     }}
     controller
+    // @ts-ignore
     onViewStateChange={onViewStateChange}
+    // @ts-ignore
     getTooltip={({object}: PickingInfo<DataType>) => object && `${object.hex} count: ${object.count}`}
     layers={[layer]}
   >
